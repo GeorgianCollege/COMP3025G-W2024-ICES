@@ -4,6 +4,10 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 class MainActivity : AppCompatActivity()
 {
@@ -12,22 +16,9 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.i("onResource", getTextFromResource(this, R.raw.contacts));
-        Log.i("onAsset", getTextFromAsset(this, "contacts.json"))
-
-    }
-
-    private fun getTextFromResource(context: Context, resourceId: Int): String
-    {
-        return context.resources.openRawResource(resourceId)
-            .bufferedReader()
-            .use { it.readText()}
-    }
-
-    private fun getTextFromAsset(context: Context, fileName: String): String
-    {
-        return context.resources.assets.open(fileName)
-            .bufferedReader()
-            .use { it.readText()}
+        for (contact in DataManager.instance.deserializeJSON(this, R.raw.contacts)!!)
+        {
+            Log.i("onContact", contact.FullName)
+        }
     }
 }
