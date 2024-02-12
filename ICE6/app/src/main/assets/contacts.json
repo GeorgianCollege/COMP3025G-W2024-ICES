@@ -1,0 +1,5 @@
+[
+    {"FullName": "Tom Tsiliopoulos", "ContactNumber": "4165555555", "EmailAddress": "tom@example.com"},
+    {"FullName": "Tony Stark", "ContactNumber": "4165555550", "EmailAddress": "ironman@example.com"},
+    {"FullName": "Peter Parker", "ContactNumber": "4165555551", "EmailAddress": "spiderman@example.com"}
+]
