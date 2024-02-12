@@ -3,14 +3,32 @@ package ca.lakeheadu.comp3025g_w2024_week5
 import android.view.View
 import ca.lakeheadu.comp3025g_w2024_week5.databinding.ActivityMainBinding
 
+
+    // LHS [OPERATOR] RHS [OPERATOR] RHS [OPERATOR =] RESULT
+
+    // "1+2+10*5-1/3"
+    // "1+2+(10*5)-(1/3)"
+
+
+    // "1+2+50-1/3"
+    // "1+2+50-0.3333"
+    // "3+50-0.3333"
+    // "53-0.3333"
+    // "52.6667"
+
+
 class Calculator (binding: ActivityMainBinding)
 {
     private var m_binding: ActivityMainBinding
     private var m_resultString: String
+    private var m_LHS: String
+    private var m_activeOperation: String
 
     init {
         this.m_binding = binding
         this.m_resultString = ""
+        this.m_LHS = ""
+        this.m_activeOperation = ""
 
         initializeOnClickListeners()
     }
@@ -45,7 +63,49 @@ class Calculator (binding: ActivityMainBinding)
 
     private fun processOperatorButtons(view: View)
     {
-        this.m_binding.resultTextView.text = view.tag.toString()
+        // CAUTION:  This is the wrong (or incomplete) approach
+
+        this.m_activeOperation = view.tag.toString()
+
+        if(m_LHS.isEmpty())
+        {
+            this.m_LHS = this.m_resultString
+            this.m_resultString = ""
+        }
+        else
+        {
+            when(view.tag.toString())
+            {
+                "multiply" ->
+                {
+
+                }
+                "divide" ->
+                {
+
+                }
+                "add" ->
+                {
+
+                    this.m_LHS = add(this.m_LHS,this.m_resultString.ifEmpty { "0" })
+                    this.m_resultString = ""
+                    this.m_binding.resultTextView.text = this.m_LHS
+                }
+                "subtract" ->
+                {
+                    this.m_LHS = subtract(this.m_LHS,this.m_resultString.ifEmpty { "0" })
+                    this.m_resultString = ""
+                    this.m_binding.resultTextView.text = this.m_LHS
+                }
+                "equals" ->
+                {
+
+                }
+            }
+        }
+
+
+
     }
 
     private fun processExtraButtons(view: View)
@@ -113,6 +173,44 @@ class Calculator (binding: ActivityMainBinding)
     private fun clear()
     {
         this.m_resultString = ""
+        this.m_LHS = ""
         this.m_binding.resultTextView.text = "0"
     }
+
+    // Operator Functions
+
+    /**
+     * This function adds to numbers together and returns a string representation of the result
+     *
+     * @param lhs [String]
+     * @param rhs [String]
+     * @return [String]
+     * */
+    private fun add(lhs: String, rhs: String): String
+    {
+        if(lhs.contains(".") || rhs.contains("."))
+        {
+            return (lhs.toFloat() + rhs.toFloat()).toString()
+        }
+
+        return (lhs.toInt() + rhs.toInt()).toString()
+    }
+
+    /**
+     * This function subtracts the rhs from the lhs and returns a string representation of the result
+     *
+     * @param lhs [String]
+     * @param rhs [String]
+     * @return [String]
+     * */
+    private fun subtract(lhs: String, rhs: String): String
+    {
+        if(lhs.contains(".") || rhs.contains("."))
+        {
+            return (lhs.toFloat() - rhs.toFloat()).toString()
+        }
+
+        return (lhs.toInt() - rhs.toInt()).toString()
+    }
+
 }
