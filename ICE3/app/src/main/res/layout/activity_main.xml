@@ -33,26 +33,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/thirdRow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstRow"
-        app:layout_constraintBottom_toTopOf="@id/thirdRow">
+        app:layout_constraintTop_toBottomOf="@+id/firstRow">
 
         <Button
             android:id="@+id/clearButton"
+            style="@style/ButtonText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/mx_10"
             android:layout_weight="1"
-            android:backgroundTint="#ACACAC"
-            android:fontFamily="@font/fa_solid_900"
             android:tag="clear"
-            android:text="@string/clear"
-            android:textColor="@color/black"
-            android:textSize="@dimen/buttonTextSize" />
+            android:text="@string/clear" />
 
         <Button
             android:id="@+id/percentButton"
+            style="@style/ButtonText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/mx_10"
@@ -95,10 +92,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/fourthRow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondRow"
-        app:layout_constraintBottom_toTopOf="@id/fourthRow">
+        app:layout_constraintTop_toBottomOf="@+id/secondRow">
 
         <Button
             android:id="@+id/sevenButton"
@@ -151,10 +148,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/fifthRow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/thirdRow"
-        app:layout_constraintBottom_toTopOf="@id/fifthRow">
+        app:layout_constraintTop_toBottomOf="@+id/thirdRow">
 
         <Button
             android:id="@+id/fourButton"
@@ -207,10 +204,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/sixthRow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fourthRow"
-        app:layout_constraintBottom_toTopOf="@id/sixthRow">
+        app:layout_constraintTop_toBottomOf="@+id/fourthRow">
 
         <Button
             android:id="@+id/oneButton"
@@ -263,10 +260,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fifthRow"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/fifthRow">
 
         <Button
             android:id="@+id/plusminusButton"
@@ -278,8 +275,8 @@
             android:fontFamily="@font/fa_solid_900"
             android:tag="plus_minus"
             android:text="@string/plus_minus"
-            android:textSize="@dimen/buttonTextSize"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/buttonTextSize" />
 
         <Button
             android:id="@+id/zeroButton"
@@ -315,6 +312,7 @@
             android:text="@string/equals"
             android:textSize="@dimen/buttonTextSize" />
     </LinearLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

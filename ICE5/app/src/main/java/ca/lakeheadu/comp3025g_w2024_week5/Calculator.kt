@@ -53,10 +53,10 @@ class Calculator (binding: ActivityMainBinding)
         when (view.tag.toString())
         {
             "backspace" -> {
-                if(this.m_resultString.length < 2)
+                if((this.m_resultString.length < 2) ||
+                  ((this.m_resultString.length == 2) && (this.m_resultString.contains("-"))))
                 {
-                    this.m_resultString = ""
-                    this.m_binding.resultTextView.text = "0"
+                    clear()
                 }
                 else
                 {
@@ -66,8 +66,7 @@ class Calculator (binding: ActivityMainBinding)
             }
             "clear" ->
             {
-                this.m_resultString = ""
-                this.m_binding.resultTextView.text = "0"
+                clear()
             }
             "plus_minus" ->
             {
@@ -109,5 +108,11 @@ class Calculator (binding: ActivityMainBinding)
         }
 
         this.m_binding.resultTextView.text = this.m_resultString
+    }
+
+    private fun clear()
+    {
+        this.m_resultString = ""
+        this.m_binding.resultTextView.text = "0"
     }
 }
