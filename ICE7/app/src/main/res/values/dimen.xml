@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_height">60dp</dimen>
+    <dimen name="margin_medium">10dp</dimen>
+    <dimen name="CellMargin">5dp</dimen>
+    <dimen name="CellTextSize">24sp</dimen>
+</resources>
