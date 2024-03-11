@@ -2,6 +2,7 @@
 <resources>
     <dimen name="list_item_height">60dp</dimen>
     <dimen name="margin_medium">10dp</dimen>
-    <dimen name="CellMargin">5dp</dimen>
-    <dimen name="CellTextSize">24sp</dimen>
+    <dimen name="cell_margin">5dp</dimen>
+    <dimen name="cell_text_size">24sp</dimen>
+    <dimen name="dialog_height">120dp</dimen>
 </resources>
