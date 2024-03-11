@@ -43,13 +43,15 @@ class MainActivity : AppCompatActivity() {
             }
 
             // Setup swipe to delete
-            val swipeToDeleteCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            val swipeToDeleteCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)
+            {
                 override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean
                 {
                     return false // not used
                 }
 
-                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int)
+                {
                     AlertDialog.Builder(this@MainActivity).apply {
                         setTitle(R.string.delete_movie)
                         setMessage(R.string.are_you_sure)
