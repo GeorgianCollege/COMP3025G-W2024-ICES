@@ -15,13 +15,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val favouriteTVShows = arrayOf(
-            TVShow("House of the Dragon", "HBO"),
-            TVShow("Lord of the Rings", "Prime Video"),
-            TVShow("Andor", "Disney"),
-            TVShow("Severance", "AppleTv"),
-            TVShow("Star Trek: Strange New Worlds", "Paramount+")
-        )
+        val favouriteTVShows = DataManager.instance.deserializeJSON(this,  R.raw.tvshows)
 
         val firstAdapter = FirstAdapter(favouriteTVShows)
         // Use view binding to replace findViewById or synthetic properties
