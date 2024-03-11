@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ca.lakeheadu.comp3025g_w2024_week9.databinding.ActivityMainBinding
 import ca.lakeheadu.comp3025g_w2024_week9.databinding.AddNewMovieItemBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
     // Declare an instance of the binding class
@@ -27,6 +28,26 @@ class MainActivity : AppCompatActivity() {
         // Inflate the layout
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // initialize Firebase
+        FirebaseApp.initializeApp(this)
+
+        val firestore = FirestoreDataManager()
+        firestore.getMovies { movies ->
+            for(movie in movies)
+            {
+                println(movie.title)
+            }
+        }
+
+        val newMovie = FirebaseMovie("MyTitle", "MyStudio")
+        firestore.addMovie(newMovie) { isSuccess ->
+            if(isSuccess)
+            {
+                println("Success!")
+            }
+        }
+
 
         viewModel.movies.observe(this) { movies ->
             movieList = movies.toMutableList()
