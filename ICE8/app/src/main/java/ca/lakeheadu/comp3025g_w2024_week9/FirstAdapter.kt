@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ca.lakeheadu.comp3025g_w2024_week9.databinding.TextRowItemBinding
 
-class FirstAdapter(private val dataSet: List<TVShow>?) :
+class FirstAdapter(private var dataSet: List<Movie>) :
     RecyclerView.Adapter<FirstAdapter.ViewHolder>()
 {
+    var onMovieClick: ((Movie)-> Unit)? = null
 
     class ViewHolder(val binding: TextRowItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -21,9 +22,14 @@ class FirstAdapter(private val dataSet: List<TVShow>?) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int)
     {
         // Use view binding to set the text
-        viewHolder.binding.title.text = dataSet!![position].title
-        viewHolder.binding.subTitle.text = dataSet[position].subTitle
+        viewHolder.binding.title.text = dataSet[position].title
+        viewHolder.binding.studio.text = dataSet[position].studio
+
+        // adds a click listener to each row in the RecyclerView
+        viewHolder.binding.root.setOnClickListener{
+            onMovieClick?.invoke(dataSet[position])
+        }
     }
 
-    override fun getItemCount() = dataSet!!.size
+    override fun getItemCount() = dataSet.size
 }
