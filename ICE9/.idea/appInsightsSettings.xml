@@ -27,10 +27,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="ca.lakeheadu.comp3025g_w2024_week10" />
+                  <option name="mobileSdkAppId" value="1:1015879878007:android:13a8f6207eb6cdfe84cd72" />
+                  <option name="projectId" value="comp2140-w2024" />
+                  <option name="projectNumber" value="1015879878007" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
