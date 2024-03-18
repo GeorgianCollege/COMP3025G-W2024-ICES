@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1015879878007",
+    "project_id": "comp2140-w2024",
+    "storage_bucket": "comp2140-w2024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015879878007:android:13a8f6207eb6cdfe84cd72",
+        "android_client_info": {
+          "package_name": "ca.lakeheadu.comp3025g_w2024_week9"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0TSwuA6lo-56gkKMIsEsw34LR5q6adjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

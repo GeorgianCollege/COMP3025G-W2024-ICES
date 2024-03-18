@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">COMP3025-W2024-Week10</string>
+    <string name="title_text">Title</string>
+    <string name="studio_text">studio</string>
+    <string name="add_dialog_title">Add a new Movie</string>
+    <string name="update_dialog_title">Update a Movie</string>
+    <string name="add_movie">Add Movie</string>
+    <string name="update_movie">Update Movie</string>
+    <string name="delete_movie">Delete Movie</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="title_prompt">Movie Title</string>
+    <string name="subtitle_prompt">Studio Name</string>
+    <string name="are_you_sure">Are you sure?</string>
+</resources>
