@@ -44,7 +44,7 @@ class DataManager private constructor(private val context: Context)
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(okHttpClient)
+            .client(okHttpClient) // interceptor
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }
