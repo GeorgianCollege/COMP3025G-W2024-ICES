@@ -1,10 +1,12 @@
 package ca.lakeheadu.comp3025g_w2024_week11.activities
+
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,6 +32,9 @@ class MainActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen()
+
         // Inflate the layout
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -88,7 +93,6 @@ class MainActivity : AppCompatActivity()
         addMovieFAB = binding.addMovieFAB
         addMovieFAB.setOnClickListener{ showAddMovieDialog() }
 
-        binding.logoutButton.setOnClickListener { logoutUser() }
     }
 
     private fun showAddMovieDialog()
@@ -138,17 +142,6 @@ class MainActivity : AppCompatActivity()
             viewModel.updateMovie(movie.id, updatedMovie)
         }
         builder.create().show()
-    }
-
-    private fun logoutUser()
-    {
-        val sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
-        with(sharedPreferences.edit()) {
-            remove("auth_token")
-            apply()
-        }
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
     }
 
 }
