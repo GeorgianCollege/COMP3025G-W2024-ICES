@@ -1,6 +1,7 @@
 package ca.lakeheadu.comp3025g_w2024_week10
-
 import android.app.AlertDialog
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -13,7 +14,8 @@ import ca.lakeheadu.comp3025g_w2024_week10.databinding.AddNewMovieItemBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.FirebaseApp
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity()
+{
     // Declare an instance of the binding class
     private lateinit var binding: ActivityMainBinding
     private lateinit var addNewMovieBinding: AddNewMovieItemBinding
@@ -47,7 +49,6 @@ class MainActivity : AppCompatActivity() {
                 println("Success!")
             }
         }
-
 
         viewModel.movies.observe(this) { movies ->
             movieList = movies.toMutableList()
@@ -101,6 +102,8 @@ class MainActivity : AppCompatActivity() {
         // add the FAB
         addMovieFAB = binding.addMovieFAB
         addMovieFAB.setOnClickListener{ showAddMovieDialog() }
+
+        binding.logoutButton.setOnClickListener { logoutUser() }
     }
 
     private fun showAddMovieDialog()
@@ -150,6 +153,17 @@ class MainActivity : AppCompatActivity() {
             viewModel.updateMovie(movie.id, updatedMovie)
         }
         builder.create().show()
+    }
+
+    private fun logoutUser()
+    {
+        val sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            remove("auth_token")
+            apply()
+        }
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
 }
