@@ -49,9 +49,10 @@
         android:clickable="true"
         android:contentDescription="Add a Movie"
         android:focusable="true"
+        android:padding="0dp"
+        android:src="@drawable/sharp_add_circle_outline_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_add"
         tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
